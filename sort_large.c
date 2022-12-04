@@ -63,7 +63,7 @@ void	sort(t_stack **a, t_stack **b)
 	int	stack_tot;
 	
 	stack_tot = lstsize(*b);
-	sort_large(a, b);
+	push_all_but_3(a, b);
 	sort_3(a);
 	while (*b)
 	{
@@ -73,7 +73,7 @@ void	sort(t_stack **a, t_stack **b)
 	if (!check_if_sorted(*a))
 	choose_rotate_a(a);
 
-}*/
+}/*
 int	sort_chunk(t_stack **a, t_stack **b, int index, int chunk)
 {
 	int stack_tot;
@@ -87,14 +87,14 @@ int	sort_chunk(t_stack **a, t_stack **b, int index, int chunk)
 	{
 		index = stack_index(*a, max);
 		if ((*a) && !((*a)->nbr <= chunk))
-		choose_rotate_a(a);
+		ft_small_pb(a, b);
 		if ((*a) && (*a)->nbr <= chunk)
 		{
 			ft_pb(a, b);
 			i++;
 		}
-	//	if (lstsize(*b) > 1 && (*a) && (*a)->nbr <= chunk)
-	//	before_pb(a, b);
+		if (lstsize(*b) > 1 && (*a) && (*a)->nbr <= chunk)
+		i += before_pb(a, b);
 	}
 	return (i);
 }
@@ -120,9 +120,10 @@ int	sort_large(t_stack **a, t_stack **b, int i)
 	}
 	if (!*a)
 	i += push_all_from_b(a, b, stack_tot);
-	if (!check_if_sorted(*a))
+	if (check_if_sorted(*a) == 1)
 	{
 		ft_putstr("the list is not sorted\n");
 	}
 	return (i);
 }
+*/
