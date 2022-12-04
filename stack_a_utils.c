@@ -21,37 +21,7 @@ int	search_a(t_stack *a, int max)
 	}
 	return (0);
 }
-/*
-static int	ra_stack(t_stack **a, int index)
-{
-	int	i;
-	int	stack_tot;
 
-	i = index;
-	stack_tot = lstsize(*a);
-	while (index)
-	{
-		ft_ra(a);
-		index--;
-	}
-	return (i);
-}
-
-static int	rra_stack(t_stack **a, int index)
-{
-	int	i;
-	int	stack_tot;
-	stack_tot = lstsize(*a);
-	index = stack_tot - index;
-	i = index;
-	while (index)
-	{
-		ft_rra(a);
-		index--;
-	}
-	return (i);
-}
-*/
 void	choose_rotate_a(t_stack **a)
 {
 	int	index_small;
