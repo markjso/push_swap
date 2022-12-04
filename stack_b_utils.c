@@ -39,29 +39,51 @@ int	index_for_b(t_stack **a, t_stack **b)
 
 void	before_pb(t_stack **a, t_stack **b)
 {
-	choose_rotate_b(b);
-	ft_pa(a, b);
+	ft_large_pa(a, b);
+	//ft_ra(a);
 }
 
-void	choose_rotate_b(t_stack **b)
+int	largest_index(t_stack **stack, int x)
 {
-	int	index_small;
+	t_stack	*tmp;
+	int		max;
+	int		i;
+
+	tmp = *stack;
+	max = -1;
+	i = 0;
+	while (tmp)
+	{
+		if (tmp->nbr > x)
+		{
+			x = tmp->nbr;
+			max = i;
+		}
+		tmp = tmp->next;
+		i++;
+	}
+	return (max);
+}
+void	ft_large_pa(t_stack **a, t_stack **b)
+{
+	int	index_large;
 	int	stack_tot;
 
-	index_small = smallest_index(b, 214767348);
+	index_large = largest_index(b, INT_MIN);
 	stack_tot = lstsize(*b);
-	if (index_small < stack_tot / 2)
+	if (index_large < stack_tot / 2)
 	{
-		while (index_small && *b)
+		while (index_large && *b)
 		{
 			ft_rb(b);
-			index_small--;
+			index_large--;
 		}
 	}
 	else
-		while (index_small < stack_tot && *b)
+		while (index_large < stack_tot && *b)
 		{
 			ft_rrb(b);
-			index_small++;
+			index_large++;
 		}
+	ft_pa(a, b);
 }
