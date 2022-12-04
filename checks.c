@@ -48,18 +48,15 @@ int check_dup_and_min_max(t_stack *a)
      return (0);
 }
 
-int	check_if_sorted(t_stack *a)
+int	check_if_sorted(t_stack *stack)
 {
-	while (a)
+	while (stack->next)
 	{
-		if (a->next)
-		{
-			if (a->nbr > a->next->nbr)
-			return (1);
-		}
-		a = a->next;
+		if (stack->nbr > stack->next->nbr)
+			return (0);
+		stack = stack->next;
 	}
-	return (0);
+	return (1);
 }
 
 void check_stack(t_stack **a, int argc, char **argv)
