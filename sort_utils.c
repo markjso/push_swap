@@ -39,7 +39,7 @@ void	ft_small_pb(t_stack **a, t_stack **b)
 	int	index_small;
 	int	stack_tot;
 
-	index_small = smallest_index(a, 214767348);
+	index_small = smallest_index(a, INT_MAX);
 	stack_tot = lstsize(*a);
 	if (index_small == 1)
 	{
