@@ -6,7 +6,7 @@
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:34:23 by jmarks            #+#    #+#             */
-/*   Updated: 2022/11/21 17:00:34 by jmarks           ###   ########.fr       */
+/*   Updated: 2022/12/05 09:58:54 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_rra(t_stack **a)
 void	ft_pb(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
-	
+
 	if (*a)
 	{
 		tmp = (*a)->next;

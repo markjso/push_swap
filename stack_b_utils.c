@@ -6,7 +6,7 @@
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 12:25:03 by jmarks            #+#    #+#             */
-/*   Updated: 2022/11/22 12:52:23 by jmarks           ###   ########.fr       */
+/*   Updated: 2022/12/05 11:24:19 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	index_for_b(t_stack **a, t_stack **b)
 void	before_pb(t_stack **a, t_stack **b)
 {
 	ft_large_pa(a, b);
-	//ft_ra(a);
 }
 
 int	largest_index(t_stack **stack, int x)
@@ -64,6 +63,7 @@ int	largest_index(t_stack **stack, int x)
 	}
 	return (max);
 }
+
 void	ft_large_pa(t_stack **a, t_stack **b)
 {
 	int	index_large;
@@ -80,10 +80,12 @@ void	ft_large_pa(t_stack **a, t_stack **b)
 		}
 	}
 	else
+	{
 		while (index_large < stack_tot && *b)
 		{
 			ft_rrb(b);
 			index_large++;
 		}
-	ft_pa(a, b);
+		ft_pa(a, b);
+	}
 }

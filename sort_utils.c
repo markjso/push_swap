@@ -6,7 +6,7 @@
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 13:29:48 by jmarks            #+#    #+#             */
-/*   Updated: 2022/11/21 15:45:27 by jmarks           ###   ########.fr       */
+/*   Updated: 2022/12/05 13:27:34 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,8 @@ void	ft_small_pb(t_stack **a, t_stack **b)
 	int	index_small;
 	int	stack_tot;
 
-	index_small = smallest_index(a, INT_MAX);
+	index_small = smallest_index(a, 214748364);
 	stack_tot = lstsize(*a);
-	if (index_small == 1)
-	{
-		ft_sa(a);
-		ft_pb(a, b);
-	}
 	if (index_small < stack_tot / 2)
 	{
 		while (index_small && *a)
@@ -55,12 +50,14 @@ void	ft_small_pb(t_stack **a, t_stack **b)
 		}
 	}
 	else
+	{
 		while (index_small < stack_tot && *a)
 		{
 			ft_rra(a);
 			index_small++;
 		}
-		ft_pb(a, b);
+	}
+	ft_pb(a, b);
 }
 
 int	ft_min(t_stack *stack)

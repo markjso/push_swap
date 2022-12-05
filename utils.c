@@ -6,7 +6,7 @@
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 11:36:12 by jmarks            #+#    #+#             */
-/*   Updated: 2022/11/22 15:36:04 by jmarks           ###   ########.fr       */
+/*   Updated: 2022/12/05 11:09:21 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -38,9 +38,9 @@ int	ft_error(char *str)
 void	ft_free(t_stack **stack)
 {
 	t_stack	*tmp;
-	
+
 	if (!stack)
-			return ;
+		return ;
 	while (*stack)
 	{
 		tmp = (*stack)->next;

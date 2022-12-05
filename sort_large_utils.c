@@ -1,14 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_large.c                                       :+:      :+:    :+:   */
+/*   sort_large_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 15:47:54 by jmarks            #+#    #+#             */
-/*   Updated: 2022/11/21 17:34:30 by jmarks           ###   ########.fr       */
+/*   Created: 2022/12/05 11:26:46 by jmarks            #+#    #+#             */
+/*   Updated: 2022/12/05 11:33:56 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	stack_index(t_stack *stack, int max)
@@ -50,6 +51,7 @@ static int	rrb_stack(t_stack **a, t_stack **b, int index, int stack_tot)
 {
 	int	i;
 	int	max;
+
 	max = ft_max(*b);
 	i = 0;
 	while (stack_tot > index)
@@ -86,9 +88,4 @@ int	push_all_from_b(t_stack **a, t_stack **b, int stack_tot)
 			i += rrb_stack(a, b, index, stack_tot);
 	}
 	return (i);
-	//if (index < stack_tot / 2)
-	//	i += ra_stack(a, index);
-	//if (index >= stack_tot / 2)
-	//	i += rra_stack(a, index);
-	//return (i);
 }

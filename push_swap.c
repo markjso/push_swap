@@ -6,7 +6,7 @@
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 11:33:56 by jmarks            #+#    #+#             */
-/*   Updated: 2022/11/11 11:34:00 by jmarks           ###   ########.fr       */
+/*   Updated: 2022/12/05 11:01:50 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int main(int argc, char **argv)
 	b = NULL;
 	init_stack(&a, argv + 1);
 	check_stack(&a, argc, argv);
+	if (check_if_sorted(a))
+		return (0);
 	push_swap(&a, &b, argc);
 	//ft_free(&a);
 	//ft_free(&b);

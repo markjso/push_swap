@@ -6,7 +6,7 @@
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:47:54 by jmarks            #+#    #+#             */
-/*   Updated: 2022/11/21 17:33:42 by jmarks           ###   ########.fr       */
+/*   Updated: 2022/12/05 13:36:43 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -30,7 +30,7 @@ int	get_b_min_or_max(t_stack **a, t_stack **b, int index)
 	}
 	return (i);
 }
-
+*/
 void	push_all_but_3(t_stack **a, t_stack **b)
 {
 	int	stack_tot;
@@ -64,66 +64,17 @@ void	sort(t_stack **a, t_stack **b)
 	
 	stack_tot = lstsize(*b);
 	push_all_but_3(a, b);
+	printf("finished push all but 3\n");
 	sort_3(a);
+	printf("finished sort 3\n");
 	while (*b)
 	{
 		before_pb(a, b);
+		printf("finished before pb\n");
 		push_all_from_b(a, b, stack_tot);
+		printf("finished push all from b\n");
 	}
 	if (!check_if_sorted(*a))
+	printf("stack a is not sorteda\n");
 	choose_rotate_a(a);
-
-}/*
-int	sort_chunk(t_stack **a, t_stack **b, int index, int chunk)
-{
-	int stack_tot;
-	int	max;
-	int	i;
-
-	stack_tot = lstsize(*a);
-	max = stack_tot / 5;
-	i = 0;
-	while (search_a(*a, chunk) == 1)
-	{
-		index = stack_index(*a, max);
-		if ((*a) && !((*a)->nbr <= chunk))
-		ft_small_pb(a, b);
-		if ((*a) && (*a)->nbr <= chunk)
-		{
-			ft_pb(a, b);
-			i++;
-		}
-		if (lstsize(*b) > 1 && (*a) && (*a)->nbr <= chunk)
-		i += before_pb(a, b);
-	}
-	return (i);
 }
-
-int	sort_large(t_stack **a, t_stack **b, int i)
-{	
-	int	max;
-	int	stack_tot;
-	int	j;
-	int	chunk;
-	int	index;
-
-	j = 0;
-	stack_tot = lstsize(*a);
-	while (*a)
-	{
-		++j;
-		max = stack_tot / 5;
-		chunk = max * j;
-		index = stack_index(*a, max); // find the index of the lowest nbr in the chunk
-		if (search_a(*a, chunk) == 1)
-		i += sort_chunk(a, b, index, chunk);
-	}
-	if (!*a)
-	i += push_all_from_b(a, b, stack_tot);
-	if (check_if_sorted(*a) == 1)
-	{
-		ft_putstr("the list is not sorted\n");
-	}
-	return (i);
-}
-*/

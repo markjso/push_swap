@@ -1,51 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils1.c                                           :+:      :+:    :+:   */
+/*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 10:10:27 by jmarks            #+#    #+#             */
-/*   Updated: 2022/11/22 18:07:21 by jmarks           ###   ########.fr       */
+/*   Created: 2022/12/05 10:00:18 by jmarks            #+#    #+#             */
+/*   Updated: 2022/12/05 10:20:41 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int check_int(char *argv)
+int	check_int(char *argv)
 {
-    int i;
+	int	i;
 
-    i = -1;
-    while (argv[++i])
-    {
-           if ((argv[i] < '0' || argv[i] > '9') && argv[i] != '-' 
-				   && argv[i] != 32)
-            {
-					ft_error("some arguments are not integers\n");
-            }
-     }
-     return (0);
- }
+	i = -1;
+	while (argv[++i])
+	{
+		if ((argv[i] < '0' || argv[i] > '9') && argv[i] != '-'
+			&& argv[i] != 32)
+		{
+			ft_error("some arguments are not integers\n");
+		}
+	}
+	return (0);
+}
 
-int check_dup_and_min_max(t_stack *a)
+int	check_dup_and_min_max(t_stack *a)
 {
-     t_stack	*tmp;
- 
-     while (a)
-     {
-        tmp = a->next;
-         while (tmp)
-         {
-            if (tmp->nbr > INT_MAX - 1|| tmp->nbr < INT_MIN + 1)
-			ft_error("some arguments are bigger or smaller than an integer\n");
+	t_stack	*tmp;
+
+	while (a)
+	{
+		tmp = a->next;
+		while (tmp)
+		{
+			if (tmp->nbr > INT_MAX - 1 || tmp->nbr < INT_MIN + 1)
+				ft_error("some arguments are bigger than an integer\n");
 			else if (tmp->nbr == a->nbr)
-			ft_error("there are duplicate arguments\n");
+				ft_error("there are duplicate arguments\n");
 			tmp = tmp->next;
-		 }
-		 a = a->next;
-     }
-     return (0);
+		}
+		a = a->next;
+	}
+	return (0);
 }
 
 int	check_if_sorted(t_stack *stack)
@@ -59,11 +59,12 @@ int	check_if_sorted(t_stack *stack)
 	return (1);
 }
 
-void check_stack(t_stack **a, int argc, char **argv)
+void	check_stack(t_stack **a, int argc, char **argv)
 {
-    int i;
-    i = argc - 1;
-    while (argv[i] && i != 0)
+	int	i;
+
+	i = argc - 1;
+	while (argv[i] && i != 0)
 	{
 		check_int(argv[i]);
 		i--;

@@ -6,7 +6,7 @@
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:44:51 by jmarks            #+#    #+#             */
-/*   Updated: 2022/11/22 12:18:14 by jmarks           ###   ########.fr       */
+/*   Updated: 2022/12/05 11:08:38 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_stack	*new_node(t_stack **head, int x)
 {
 	t_stack	*ptr;
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	ptr = NULL;
 	ptr = (t_stack *)malloc(sizeof(t_stack));
@@ -39,7 +39,7 @@ int	init_stack(t_stack **head, char **argv)
 {
 	int		i;
 	t_stack	*ptr;
-	
+
 	i = 0;
 	while (argv[i])
 	{
@@ -50,7 +50,7 @@ int	init_stack(t_stack **head, char **argv)
 			while (--i >= 0)
 				free(ptr->next);
 			free(ptr);
-			ft_error("stakc not initilased\n");
+			ft_error("stack not initialised\n");
 		}
 		i++;
 	}
@@ -59,7 +59,7 @@ int	init_stack(t_stack **head, char **argv)
 
 int	index_finder(t_stack *stack, int index, int x)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (stack)

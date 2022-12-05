@@ -6,7 +6,7 @@
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:26:00 by jmarks            #+#    #+#             */
-/*   Updated: 2022/11/19 15:42:22 by jmarks           ###   ########.fr       */
+/*   Updated: 2022/12/05 10:27:44 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int		ft_atoi(char *str);
 int		ft_check(char *argv);
 int 	smallest_index(t_stack **stack, int x);
 void	ft_small_pb(t_stack **a, t_stack **b);
+void	ft_large_pa(t_stack **a, t_stack **b);
 void	push_all_but_3(t_stack **a, t_stack **b);
 int		init_stack(t_stack **head, char **argv);
 int		index_finder(t_stack *stack, int index, int x);
