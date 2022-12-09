@@ -14,13 +14,7 @@
 //swap the first two elements at the top of stack B
 void	ft_sb(t_stack **b)
 {
-	t_stack	*tmp;
-
-	if (!*b)
-		return ;
-	tmp = *b;
-	*b = (*b)->next;
-	(*b)->next = tmp;
+	swap(*b);
 	ft_putstr("sb\n");
 }
 
@@ -46,18 +40,16 @@ void	ft_rb(t_stack **b)
  * becomes the first*/
 void	ft_rrb(t_stack **b)
 {
-	t_stack	*curr;
+	t_stack	*end;
 	t_stack	*prev;
+	t_stack	*tmp;
 
-	curr = *b;
-	while (curr->next)
-	{
-		prev = curr;
-		curr = curr->next;
-	}
-	curr->next = *b;
+	end = get_stack_bottom(*b);
+	prev = get_stack_before_bottom(*b);
+	tmp = *b;
+	*b = end;
+	(*b)->next = tmp;
 	prev->next = NULL;
-	*b = curr;
 	ft_putstr("rrb\n");
 }
 

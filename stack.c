@@ -6,7 +6,7 @@
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:44:51 by jmarks            #+#    #+#             */
-/*   Updated: 2022/12/05 11:08:38 by jmarks           ###   ########.fr       */
+/*   Updated: 2022/12/07 12:07:29 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ t_stack	*new_node(t_stack **head, int x)
 			tmp = tmp->next;
 		tmp->next = ptr;
 	}
+	ptr->index = 0;
+	ptr->pos = -1;
+	ptr->target_pos = -1;
+	ptr->cost_a = -1;
+	ptr->cost_b = -1;
 	return (ptr);
 }
 
@@ -49,7 +54,7 @@ int	init_stack(t_stack **head, char **argv)
 			i--;
 			while (--i >= 0)
 				free(ptr->next);
-			free(ptr);
+			ft_free(&ptr);
 			ft_error("stack not initialised\n");
 		}
 		i++;
@@ -57,17 +62,31 @@ int	init_stack(t_stack **head, char **argv)
 	return (0);
 }
 
-int	index_finder(t_stack *stack, int index, int x)
+void	assign_index(t_stack *a, int stack_tot)
 {
-	int	i;
+	t_stack	*ptr;
+	t_stack	*highest;
+	int		nbr;
 
-	i = -1;
-	while (stack)
+	while (--stack_tot > 0)
 	{
-		i++;
-		if (x == stack->nbr)
-			index = i;
-		stack = stack->next;
+		ptr = a;
+		nbr = INT_MIN;
+		highest = NULL;
+		while (ptr)
+		{
+			if (ptr->nbr == INT_MIN && ptr->index == 0)
+				ptr->index = 1;
+			if (ptr->nbr > nbr && ptr->index == 0)
+			{
+				nbr = ptr->nbr;
+				highest = ptr;
+				ptr = a;
+			}
+			else
+				ptr = ptr->next;
+		}
+		if (highest != NULL)
+			highest->index = stack_tot;
 	}
-	return (index);
 }

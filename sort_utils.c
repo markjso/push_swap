@@ -6,7 +6,7 @@
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 13:29:48 by jmarks            #+#    #+#             */
-/*   Updated: 2022/12/05 13:27:34 by jmarks           ###   ########.fr       */
+/*   Updated: 2022/12/07 15:59:29 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_small_pb(t_stack **a, t_stack **b)
 	int	index_small;
 	int	stack_tot;
 
-	index_small = smallest_index(a, 214748364);
+	index_small = smallest_index(a, INT_MAX);
 	stack_tot = lstsize(*a);
 	if (index_small < stack_tot / 2)
 	{
@@ -57,33 +57,19 @@ void	ft_small_pb(t_stack **a, t_stack **b)
 			index_small++;
 		}
 	}
-	ft_pb(a, b);
+	do_pb(a, b);
 }
 
-int	ft_min(t_stack *stack)
+void	ft_free(t_stack **stack)
 {
-	int	i;
+	t_stack	*tmp;
 
-	i = stack->nbr;
-	while (stack)
+	if (!stack)
+		return ;
+	while (*stack)
 	{
-		if (stack->nbr < i)
-			i = stack->nbr;
-		stack = stack->next;
+		tmp = (*stack)->next;
+		free (*stack);
+		*stack = tmp;
 	}
-	return (i);
-}
-
-int	ft_max(t_stack *stack)
-{
-	int	i;
-
-	i = stack->nbr;
-	while (stack)
-	{
-		if (stack->nbr > i)
-			i = stack->nbr;
-		stack = stack->next;
-	}
-	return (i);
 }

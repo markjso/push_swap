@@ -11,16 +11,23 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 //swap the first two elements at the of stack A
+
+void	swap(t_stack *stack)
+{
+	int	tmp;
+
+	if (stack == NULL || stack->next == NULL)
+		return ;
+	tmp = stack->nbr;
+	stack->nbr = stack->next->nbr;
+	stack->next->nbr = tmp;
+}
+
 void	ft_sa(t_stack **a)
 {
-	t_stack	*tmp;
-
-	if (!*a)
-		return ;
-	tmp = *a;
-	*a = (*a)->next;
-	(*a)->next = tmp;
+	swap(*a);
 	ft_putstr("sa\n");
 }
 
@@ -42,26 +49,23 @@ void	ft_ra(t_stack **a)
 	ft_putstr("ra\n");
 }
 
-/*reverse rotate - shift all elements down by 1. The last element
- * becomes the first*/
+//reverse rotate - shift all elements down by 1. The last element becomes the first
 void	ft_rra(t_stack **a)
 {
-	t_stack	*curr;
+	t_stack	*end;
 	t_stack	*prev;
+	t_stack	*tmp;
 
-	curr = *a;
-	while (curr->next)
-	{
-		prev = curr;
-		curr = curr->next;
-	}
-	curr->next = *a;
+	end = get_stack_bottom(*a);
+	prev = get_stack_before_bottom(*a);
+	tmp = *a;
+	*a = end;
+	(*a)->next = tmp;
 	prev->next = NULL;
-	*a = curr;
 	ft_putstr("rra\n");
 }
-
-//take the first element of stack A and put it at the top of stack B
+/*
+take the first element of stack A and put it at the top of stack B
 void	ft_pb(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
@@ -77,4 +81,29 @@ void	ft_pb(t_stack **a, t_stack **b)
 		*a = tmp;
 		ft_putstr("pb\n");
 	}
+}
+*/
+
+static void push(t_stack **src, t_stack **dst)
+{
+	t_stack *tmp;
+
+	if (*src == NULL)
+		return ;
+	tmp = (*src)->next;
+	(*src)->next = *dst;
+	*dst = *src;
+	*src = tmp;
+}
+
+void	do_pa(t_stack **stack_a, t_stack **stack_b)
+{
+	push(stack_b, stack_a);
+	ft_putstr("pa\n");
+}
+
+void	do_pb(t_stack **stack_a, t_stack **stack_b)
+{
+	push(stack_a, stack_b);
+	ft_putstr("pb\n");
 }

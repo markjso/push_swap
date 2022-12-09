@@ -6,7 +6,7 @@
 /*   By: jmarks <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 11:41:25 by jmarks            #+#    #+#             */
-/*   Updated: 2022/12/05 11:06:06 by jmarks           ###   ########.fr       */
+/*   Updated: 2022/12/07 15:55:22 by jmarks           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	sort_3(t_stack **a)
 		ft_sa(a);
 }
 
-void	sort_5(t_stack **a, t_stack **b, int argc)
+void	sort_5(t_stack **a, t_stack **b, int stack_tot)
 {
 	t_stack	*tmp;
 	int		i;
@@ -54,23 +54,20 @@ void	sort_5(t_stack **a, t_stack **b, int argc)
 
 	i = -1;
 	tmp = *a;
+	stack_tot = lstsize (*a);
 	while (++i >= 5 && ++i < 7)
 	{
 		n[i] = tmp->nbr;
 		tmp = tmp->next;
 	}
-	if (argc == 6)
-	{
+	if (stack_tot == 5)
 		ft_small_pb(a, b);
+	ft_small_pb(a, b);
+	sort_3(a);
+	do_pa(a, b);
+	do_pa(a, b);
+	if (stack_tot == 4)
 		ft_small_pb(a, b);
-		sort_3(a);
-		ft_pa(a, b);
-		ft_pa(a, b);
-	}
-	if (argc == 5)
-	{
-		ft_small_pb(a, b);
-		sort_3(a);
-		ft_pa(a, b);
-	}
+	sort_3(a);
+	do_pa(a, b);
 }

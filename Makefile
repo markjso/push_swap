@@ -6,7 +6,7 @@
 #    By: jmarks <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 14:48:04 by jmarks            #+#    #+#              #
-#    Updated: 2022/12/01 15:02:40 by jmarks           ###   ########.fr        #
+#    Updated: 2022/12/07 11:25:57 by jmarks           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,13 @@ SRCS = srcs/actions.c \
 	srcs/actions1.c \
 	srcs/actions2.c \
 	srcs/checks.c \
+	srcs/cost.c \
 	srcs/push_swap.c \
 	srcs/sort_large_utils.c \
 	srcs/sort_large.c \
+	srcs/position.c \
 	srcs/sort_utils.c \
 	srcs/sort.c \
-	srcs/stack_a_utils.c \
-	srcs/stack_b_utils.c \
 	srcs/stack.c \
 	srcs/utils.c
 	
@@ -32,7 +32,7 @@ OBJS=$(SRCS:.c=.o)
 
 CC=gcc
 
-CFLAGS=-Wall -Wextra -Werror -Iinc/
+CFLAGS=-Wall -Wextra -Werror -Iinc/ -g
 
 all: $(NAME)
 
