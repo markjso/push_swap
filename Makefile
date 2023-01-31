@@ -12,8 +12,6 @@
 
 NAME = push_swap
 
-MLX_DIR = mlx
-
 SRCS = srcs/rotate.c \
 	srcs/push.c \
 	srcs/swap.c \
